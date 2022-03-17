@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.main')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-
-    @foreach ($movies as $movie)
-        <h2>{{ $movie->title }}</h2>
-    @endforeach
-</body>
-
-</html>
+@section('content')
+    <div class="row gy-4">
+        @foreach ($movies as $movie)
+            <div class="col-4">
+                <div class="my-card">
+                    <h2>Titolo: {{ $movie->title }}</h2>
+                    <h3>Titolo Inglese: {{ $movie->original_title }}</h3>
+                    <h4>Nazione di produzione: {{ $movie->nationality }}</h4>
+                    <h4>Data di rilascio: {{ $movie->date }}</h4>
+                    <span>Accoglienza dalla critica: {{ $movie->vote }}</span>
+                </div>
+            </div>
+        @endforeach
+    </div>
+@endsection
